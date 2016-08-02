@@ -1,0 +1,20 @@
+#!/bin/bash
+if [[ $1 = "" ]]; then
+  echo "No argument supplied
+Usage: pingserv (console | start | stop)"
+elif [[ $1 = "start" ]]; then
+    DIR="$( cd "$( dirname "$0" )" && pwd )"
+    echo "Starting pingserv..."
+    screen -dmS pingserv -c $DIR/pingserv.conf
+    echo "pingserv started"
+elif [[ $1 = "stop" ]]; then
+  screen -X -S pingserv quit
+  echo "pingserv stopped"
+elif [[ $1 = "console" ]]; then
+  screen -x pingserv
+elif [[ $1 = "--help" ]]; then
+  echo "manpage"
+else
+  echo "Unknown argument supplied
+Usage: pingserv (console | shutdown | start | stop)"
+fi

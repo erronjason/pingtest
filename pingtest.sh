@@ -2,7 +2,7 @@
 
 LASTSTATUS=""
 while true; do
-    ping -c 1 -t 150 8.8.8.8 > /dev/null
+    ping -c 1 -t 200 8.8.8.8 > /dev/null
     STATUS=$?
     NOW=$(date)
     if [ $STATUS -ne 0 ]; then
